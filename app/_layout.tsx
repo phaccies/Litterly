@@ -12,7 +12,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack
         screenOptions={{
-          headerShown: false, // we’re building our own headers/navbars
+          headerShown: false, // we build custom headers/navbars on each screen
         }}
       >
         {/* "/" */}
@@ -24,14 +24,19 @@ export default function RootLayout() {
         {/* "/register" */}
         <Stack.Screen name="register" />
 
-        {/* If you still want modal.tsx to work at /modal, keep this.
-            If you don't care about it, you can delete this Screen + delete modal.tsx */}
+        {/* "/capture" (Scan Item Page) */}
+        <Stack.Screen name="capture" />
+
+        {/* "/impact" (Impact Page) */}
+        <Stack.Screen name="impact" />
+
+        {/* "/modal" (optional leftover from template) */}
         <Stack.Screen
           name="modal"
           options={{
             presentation: 'modal',
-            // headerShown false because you're doing custom back button styling
             headerShown: false,
+            title: 'Modal',
           }}
         />
       </Stack>

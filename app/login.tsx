@@ -12,6 +12,12 @@ import {
 import { router } from 'expo-router';
 
 export default function LoginScreen() {
+  // when user taps Login
+  const handleLogin = () => {
+    // go straight to capture page and clear auth screens from history
+    router.replace('/capture');
+  };
+
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -21,6 +27,7 @@ export default function LoginScreen() {
             <TouchableOpacity onPress={() => router.push('/')}>
               <View style={styles.logoCircle} />
             </TouchableOpacity>
+
             <TouchableOpacity onPress={() => router.push('/')}>
               <Text style={styles.navBrandLink}>Home</Text>
             </TouchableOpacity>
@@ -28,13 +35,17 @@ export default function LoginScreen() {
 
           <View style={styles.navRight}>
             <Text style={styles.navLinkActive}>Login</Text>
-            <TouchableOpacity style={styles.registerBtn} onPress={() => router.push('/register')}>
+
+            <TouchableOpacity
+              style={styles.registerBtn}
+              onPress={() => router.push('/register')}
+            >
               <Text style={styles.registerText}>Register</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* HEADER ROW WITH BACK */}
+        {/* HEADER ROW */}
         <View style={styles.headerRow}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backIcon}>{'‹'}</Text>
@@ -51,8 +62,8 @@ export default function LoginScreen() {
               style={styles.input}
               placeholder=""
               placeholderTextColor="#aaa"
-              keyboardType="email-address"
               autoCapitalize="none"
+              keyboardType="email-address"
             />
           </View>
 
@@ -73,13 +84,14 @@ export default function LoginScreen() {
               <Switch value={true} />
               <Text style={styles.smallNote}>Remember me</Text>
             </View>
+
             <TouchableOpacity>
               <Text style={styles.smallNote}>Forgot password?</Text>
             </TouchableOpacity>
           </View>
 
           {/* Login button */}
-          <TouchableOpacity style={styles.primaryBtn}>
+          <TouchableOpacity style={styles.primaryBtn} onPress={handleLogin}>
             <Text style={styles.primaryBtnText}>Login</Text>
           </TouchableOpacity>
 

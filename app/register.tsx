@@ -12,6 +12,12 @@ import {
 import { router } from 'expo-router';
 
 export default function RegisterScreen() {
+  // when user taps Create account
+  const handleCreateAccount = () => {
+    // go straight to capture page and clear auth screens from history
+    router.replace('/capture');
+  };
+
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -46,7 +52,7 @@ export default function RegisterScreen() {
 
         {/* CARD */}
         <View style={styles.card}>
-          {/* first / last name in row */}
+          {/* first / last name */}
           <View style={styles.rowGap}>
             <View style={styles.flexHalf}>
               <Text style={styles.label}>First name</Text>
@@ -74,25 +80,33 @@ export default function RegisterScreen() {
           {/* Password */}
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Password</Text>
-            <TextInput style={styles.input} placeholder="" placeholderTextColor="#aaa" secureTextEntry />
+            <TextInput
+              style={styles.input}
+              placeholder=""
+              placeholderTextColor="#aaa"
+              secureTextEntry
+            />
           </View>
 
           {/* Confirm */}
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Confirm password</Text>
-            <TextInput style={styles.input} placeholder="" placeholderTextColor="#aaa" secureTextEntry />
+            <TextInput
+              style={styles.input}
+              placeholder=""
+              placeholderTextColor="#aaa"
+              secureTextEntry
+            />
           </View>
 
-          {/* Terms toggle */}
+          {/* Terms */}
           <View style={styles.rowLeftSmall}>
             <Switch value={true} />
-            <Text style={styles.termsNote}>
-              I agree to the Terms and Conditions
-            </Text>
+            <Text style={styles.termsNote}>I agree to the Terms and Conditions</Text>
           </View>
 
           {/* Create btn */}
-          <TouchableOpacity style={styles.primaryBtn}>
+          <TouchableOpacity style={styles.primaryBtn} onPress={handleCreateAccount}>
             <Text style={styles.primaryBtnText}>Create an account</Text>
           </TouchableOpacity>
 
