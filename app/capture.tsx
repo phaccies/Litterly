@@ -96,10 +96,6 @@ export default function CaptureScreen() {
             <Text style={styles.navText}>Impact</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => router.push('/profile')} style={styles.navItem}>
-            <Text style={styles.navIcon}>👤</Text>
-            <Text style={styles.navText}>Profile</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

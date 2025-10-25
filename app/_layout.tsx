@@ -29,6 +29,7 @@ export default function RootLayout() {
 
         {/* "/impact" (Impact Page) */}
         <Stack.Screen name="impact" />
+        <Stack.Screen name="profile" />
 
         {/* "/modal" (optional leftover from template) */}
         <Stack.Screen
